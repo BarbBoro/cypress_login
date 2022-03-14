@@ -1,0 +1,194 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 4,
+    "passes": 1,
+    "pending": 0,
+    "failures": 3,
+    "start": "2022-03-14T01:11:46.622Z",
+    "end": "2022-03-14T01:14:25.797Z",
+    "duration": 159175,
+    "testsRegistered": 4,
+    "passPercent": 25,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "dc987e51-43a3-4817-93b1-73f8999f83c3",
+      "title": "",
+      "fullFile": "cypress/e2e/basic/basic.login.spec.ts",
+      "file": "cypress/e2e/basic/basic.login.spec.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f1beee48-0105-4025-b7fd-7f7d42f4dfe6",
+          "title": "login operations",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "985b5cc0-4099-4478-91f8-1aae01a4c97d",
+              "title": "login",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "TC01 - Successful login and logout",
+                  "fullTitle": "login operations login TC01 - Successful login and logout",
+                  "timedOut": null,
+                  "duration": 34970,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "login.returnAccountTypePage('login');\nlogin.getEmailInput().should(\"exist\").clear().type(\"testing1@zoznam.sk\");\nlogin.getPasswordInput().should(\"exist\").type(\"Test123456\");\nlogin.buttonSubmitLogin().should('exist').click();\n//assert login is successful\ncy.url().should('eq', 'https://new.gymbeam.sk/customer/account/');\nlogin.getBaseTitle().should('contain.text', this.general.baseTexts.myAccount);\nlogin.returnAccountTypePage('logout');\nlogin.getBaseTitle().should('contain.text', this.general.baseTexts.successLogout);",
+                  "err": {},
+                  "uuid": "8648846c-6b54-4bd9-8863-33e59ad562d3",
+                  "parentUUID": "985b5cc0-4099-4478-91f8-1aae01a4c97d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "TC02 - Login as not existing user",
+                  "fullTitle": "login operations login TC02 - Login as not existing user",
+                  "timedOut": null,
+                  "duration": 35481,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "login.returnAccountTypePage('login');\nlogin.getEmailInput().should(\"exist\").clear().type(\"dummy@email.com\");\nlogin.getPasswordInput().should(\"exist\").type(\"password\");\nlogin.buttonSubmitLogin().should('exist').click();\n//assert login is not successful\ncy.intercept(this.general.urls.waitForPostEvent).as('loginPost');\ncy.wait(5000);\ncy.wait('@loginPost');\nlogin.getErrorMessage().should('contain.text', this.general.alerts.wrongLogin);",
+                  "err": {
+                    "message": "CypressError: Timed out retrying after 5000ms: `cy.wait()` timed out waiting `5000ms` for the 1st request to the route: `loginPost`. No request ever occurred.\n\nhttps://on.cypress.io/wait",
+                    "estack": "CypressError: Timed out retrying after 5000ms: `cy.wait()` timed out waiting `5000ms` for the 1st request to the route: `loginPost`. No request ever occurred.\n\nhttps://on.cypress.io/wait\n    at cypressErr (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:176336:18)\n    at Object.errByPath (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:176405:10)\n    at checkForXhr (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:162534:92)\n    at https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:162557:28\n    at tryCatcher (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:13022:23)\n    at Function.Promise.attempt.Promise.try (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:10296:29)\n    at whenStable (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:168760:63)\n    at https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:168257:14\n    at tryCatcher (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:13022:23)\n    at Promise._settlePromiseFromHandler (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:10957:31)\n    at Promise._settlePromise (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:11014:18)\n    at Promise._settlePromise0 (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:11059:10)\n    at Promise._settlePromises (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:11139:18)\n    at Promise._fulfill (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:11083:18)\n    at https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:12697:46\nFrom Your Spec Code:\n    at Context.eval (https://new.gymbeam.sk/__cypress/tests?p=cypress/e2e/basic/basic.login.spec.ts:137:16)",
+                    "diff": null
+                  },
+                  "uuid": "9bcb4b9e-b45f-411a-97d2-580471a0be2c",
+                  "parentUUID": "985b5cc0-4099-4478-91f8-1aae01a4c97d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "TC03 - Try to login with only email input filled ",
+                  "fullTitle": "login operations login TC03 - Try to login with only email input filled ",
+                  "timedOut": null,
+                  "duration": 37159,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "login.returnAccountTypePage('login');\nlogin.getEmailInput().should(\"exist\").clear().type(\"dummy@email.com\");\nlogin.buttonSubmitLogin().should('exist').click();\nlogin.buttonSubmitLogin().should('exist').click();\n//assert login is not successful\ncy.intercept(this.general.urls.waitForPostEvent).as('loginPost');\ncy.wait(5000);\ncy.wait('@loginPost');\nlogin.getErrorMessage().should('contain.text', this.general.alerts.mandatoryCredentials);",
+                  "err": {
+                    "message": "CypressError: Timed out retrying after 5000ms: `cy.wait()` timed out waiting `5000ms` for the 1st request to the route: `loginPost`. No request ever occurred.\n\nhttps://on.cypress.io/wait",
+                    "estack": "CypressError: Timed out retrying after 5000ms: `cy.wait()` timed out waiting `5000ms` for the 1st request to the route: `loginPost`. No request ever occurred.\n\nhttps://on.cypress.io/wait\n    at cypressErr (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:176336:18)\n    at Object.errByPath (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:176405:10)\n    at checkForXhr (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:162534:92)\n    at https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:162557:28\n    at tryCatcher (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:13022:23)\n    at Function.Promise.attempt.Promise.try (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:10296:29)\n    at whenStable (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:168760:63)\n    at https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:168257:14\n    at tryCatcher (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:13022:23)\n    at Promise._settlePromiseFromHandler (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:10957:31)\n    at Promise._settlePromise (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:11014:18)\n    at Promise._settlePromise0 (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:11059:10)\n    at Promise._settlePromises (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:11139:18)\n    at Promise._fulfill (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:11083:18)\n    at https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:12697:46\nFrom Your Spec Code:\n    at Context.eval (https://new.gymbeam.sk/__cypress/tests?p=cypress/e2e/basic/basic.login.spec.ts:148:16)",
+                    "diff": null
+                  },
+                  "uuid": "ce853d65-0ba4-4afa-a356-22a76d524b44",
+                  "parentUUID": "985b5cc0-4099-4478-91f8-1aae01a4c97d",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "TC04 - Try to login with only password input filled ",
+                  "fullTitle": "login operations login TC04 - Try to login with only password input filled ",
+                  "timedOut": null,
+                  "duration": 42491,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "login.returnAccountTypePage('login');\nlogin.getPasswordInput().should(\"exist\").type(\"password\");\nlogin.buttonSubmitLogin().should('exist').click();\nlogin.buttonSubmitLogin().should('exist').click();\n//assert login is not successful\ncy.intercept(this.general.urls.waitForPostEvent).as('loginPost');\ncy.wait(5000);\ncy.wait('@loginPost');\nlogin.getErrorMessage().should('contain.text', this.general.alerts.mandatoryCredentials);",
+                  "err": {
+                    "message": "CypressError: Timed out retrying after 5000ms: `cy.wait()` timed out waiting `5000ms` for the 1st request to the route: `loginPost`. No request ever occurred.\n\nhttps://on.cypress.io/wait",
+                    "estack": "CypressError: Timed out retrying after 5000ms: `cy.wait()` timed out waiting `5000ms` for the 1st request to the route: `loginPost`. No request ever occurred.\n\nhttps://on.cypress.io/wait\n    at cypressErr (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:176336:18)\n    at Object.errByPath (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:176405:10)\n    at checkForXhr (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:162534:92)\n    at https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:162557:28\n    at tryCatcher (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:13022:23)\n    at Function.Promise.attempt.Promise.try (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:10296:29)\n    at whenStable (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:168760:63)\n    at https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:168257:14\n    at tryCatcher (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:13022:23)\n    at Promise._settlePromiseFromHandler (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:10957:31)\n    at Promise._settlePromise (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:11014:18)\n    at Promise._settlePromise0 (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:11059:10)\n    at Promise._settlePromises (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:11139:18)\n    at Promise._fulfill (https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:11083:18)\n    at https://new.gymbeam.sk/__cypress/runner/cypress_runner.js:12697:46\nFrom Your Spec Code:\n    at Context.eval (https://new.gymbeam.sk/__cypress/tests?p=cypress/e2e/basic/basic.login.spec.ts:159:16)",
+                    "diff": null
+                  },
+                  "uuid": "3ed35faf-4678-4f7a-8fb6-a3614e0421c8",
+                  "parentUUID": "985b5cc0-4099-4478-91f8-1aae01a4c97d",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "8648846c-6b54-4bd9-8863-33e59ad562d3"
+              ],
+              "failures": [
+                "9bcb4b9e-b45f-411a-97d2-580471a0be2c",
+                "ce853d65-0ba4-4afa-a356-22a76d524b44",
+                "3ed35faf-4678-4f7a-8fb6-a3614e0421c8"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 150101,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.2"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": true,
+        "html": true,
+        "json": true
+      },
+      "version": "6.1.1"
+    }
+  }
+}

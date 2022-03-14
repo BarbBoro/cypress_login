@@ -1,0 +1,12 @@
+{
+   
+    "integrationFolder":"cypress/e2e",
+    "fixturesFolder":"cypress/fixtures",
+    "reporter": "mochawesome",
+   "reporterOptions": {
+      "reportDir": "cypress/results",
+      "overwrite": true,
+      "html": true,
+      "json": true
+   }
+}

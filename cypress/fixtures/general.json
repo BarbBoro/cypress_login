@@ -1,0 +1,20 @@
+{
+  "pageLogin": {
+    "pageLoginUrl":"https://new.gymbeam.sk/",
+    "pageLoginName":"tester",
+    "pageLoginPassword":"RAvNnAQGAcBYoweic"
+  },
+  "alerts":{
+    "wrongLogin":"Prihlásenie do účtu bolo nesprávne alebo je váš účet dočasne deaktivovaný. Počkajte a skúste to znova neskôr.",
+    "mandatoryCredentials":"Prihlasovacie meno a heslo sú povinné.",
+    "wrongEmail":"Zadajte prosím platnú e-mailovú adresu (napr. meno@domena.sk)."
+  },
+  "urls":{
+    "waitForPostEvent":"https://conversion.gymbeam.com/events",
+    "loginReferer":"https://new.gymbeam.sk/customer/account/login/referer/"
+  },
+  "baseTexts":{
+    "myAccount":"Môj účet",
+    "successLogout":"Boli ste odhlásený"
+  }
+}
